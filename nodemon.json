@@ -1,0 +1,7 @@
+{
+  "delay": "0",
+  "watch": ["src"],
+  "ext": "ts",
+  "ignore": [],
+  "exec": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/index.ts"
+}

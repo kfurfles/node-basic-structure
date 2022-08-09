@@ -1,0 +1,17 @@
+{
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "files.exclude": {
+      "tsconfig.build.json": true,
+  },
+  "importSorter.generalConfiguration.sortOnBeforeSave": true,
+  "files.trimTrailingWhitespace": true,
+  "editor.formatOnSave": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+  }
+}

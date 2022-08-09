@@ -1,0 +1,49 @@
+# Use root/example as user/password credentials
+version: '3.7'
+
+services:
+  # somente se quiser utilizar a aplicação fulldocker
+  # server:
+  #   container_name: POSTBACK_APP
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.dev
+  #   command: "npm run start:dev"
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./src:/app/src
+  #   depends_on:
+  #     - mongo
+  #   networks:
+  #     - node-app-applied-blockchain
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    expose:
+      - 270017
+    ports:
+      - 27017:27017
+    volumes:
+      - '/data/db'
+      - ${PWD}/scripts/mongodb:/docker-entrypoint-initdb.d/
+    networks:
+      - node-app-applied-blockchain
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8090:8081
+    depends_on:
+      - mongo
+    networks:
+      - node-app-applied-blockchain
+
+
+networks:
+  node-app-applied-blockchain:
+    external: true
+
